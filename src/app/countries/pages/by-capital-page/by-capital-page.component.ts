@@ -9,5 +9,10 @@ import { SharedModule } from 'app/shared/shared.module';
   styles: ``
 })
 export class ByCapitalPageComponent {
-  public placeholder: string = 'Por capital';
+
+  searchByCapital( term: string): void {
+    console.log('Desde ByCapitalPage');
+    console.log({ term });
+  }
+
 }
