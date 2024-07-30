@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../services/countries.service';
 import { switchMap } from 'rxjs';
+import { Country } from 'app/countries/interfaces/country';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-country-page',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './country-page.component.html',
   styles: ``
 })
@@ -16,6 +20,8 @@ export class CountryPageComponent implements OnInit {
     private router: Router,
     private countriesService:CountriesService,
   ){}
+
+  public country?: Country;
 
 
   ngOnInit(): void {
@@ -27,7 +33,8 @@ export class CountryPageComponent implements OnInit {
       if (!country) {
         return this.router.navigateByUrl('')
       }
-       return
+      return this.country = country
+       
      })
   }
 }
