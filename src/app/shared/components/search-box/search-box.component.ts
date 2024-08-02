@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, input, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { debounceTime, Subject, Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   private debouncer: Subject<string> = new Subject<string>();
 
   private debouncerSuscription?: Subscription;
-
+  
   ngOnInit(): void {
     this.debouncerSuscription = this.debouncer.pipe(
       debounceTime(260)
@@ -25,7 +25,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.debouncerSuscription?.unsubscribe()
     console.log('destruido')
-    }
+  }
   
   
   @Input()
@@ -40,8 +40,11 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   emitValue( value: string): void {
     this.onValue.emit( value )
   } 
-
+  
   onKeyPress( searchTerm: string) {
     this.debouncer.next( searchTerm );
   }
+  
+  @Input()
+  public initialValue: string = '';
 }

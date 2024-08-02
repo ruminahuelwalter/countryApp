@@ -10,7 +10,7 @@
         *ngFor="let region of regions" 
         class="btn mx-2"
         [ngClass]="{ 'btn-outline-primary': selectedRegion === region }"
-        (click)="searchByRegion(region)"
+        (click)="searchByRegion(region)"d
         >
             {{ region }}
         </button>

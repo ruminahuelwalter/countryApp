@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../services/countries.service';
 import { switchMap } from 'rxjs';
-import { Country } from 'app/countries/interfaces/country';
+import { Country } from 'app/countries/interfaces/country.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({
